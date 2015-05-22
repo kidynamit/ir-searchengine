@@ -51,7 +51,11 @@ function updatepage(str){
     var curdoc = resp.response.docs[i];
     html += "<h4>"+curdoc.title+"</h4>";
     html += curdoc.description+"<br>";
-    html += "<a href="+curdoc.og_url+">"+curdoc.og_url+"</a><br>";
+    if (curdoc.og_url) {
+        html += "<a href="+curdoc.og_url+">"+curdoc.og_url+"</a><br>";
+    } else {
+        html += "<a href=https://sw.wikipedia.org/"+curdoc.title+"</a><br>";
+    }
     html += "<br>";
   } 
   
